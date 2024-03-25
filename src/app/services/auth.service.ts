@@ -1,23 +1,17 @@
 import { Injectable } from '@angular/core';
-import {
-  Auth,
-  FacebookAuthProvider,
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-} from '@angular/fire/auth';
-
-
-
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-  constructor(private auth: Auth) {}
+  constructor(private auth: AngularFireAuth) {}
 
-  login({ email, password }: any) {
-    return signInWithEmailAndPassword(this.auth, email, password);
+  signInWithEmailAndPassword(email: string, password: string) {
+    return this.auth.signInWithEmailAndPassword(email, password);
   }
+
+  signOut() {
+    return this.auth.signOut();
+  } 
+}
 

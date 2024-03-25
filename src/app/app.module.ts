@@ -6,6 +6,15 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartModule } from './pages/cart/cart.module';
 import { SharedModule } from './shared/shared.module';
+import { initializeApp } from "firebase/app";
+import { AngularFireModule } from '@angular/fire/compat';
+
+// TODO: Add SDKs for Firebase products that you want to use
+
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+
+// Your web app's Firebase configuration
 
 const firebaseConfig = {
 
@@ -30,12 +39,13 @@ const firebaseConfig = {
     AppComponent,
   ],
   imports: [
-
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     SharedModule,
-    
+    FormsModule,
+    ReactiveFormsModule ,
+    AngularFireModule.initializeApp(firebaseConfig)
     
   ],
   providers: [],
