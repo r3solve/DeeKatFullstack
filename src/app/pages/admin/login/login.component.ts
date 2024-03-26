@@ -20,7 +20,7 @@ export class LoginComponent {
           this.router.navigate(['/admin/home']);
         })
         .catch((error) => {
-          alert('Can\'t login')
+          alert('Wrong Email Or Password')
         });
     console.log(email, password);
  
