@@ -1,18 +1,8 @@
 /* header */
 #header{
     background: url(../../../../assets/nikebg.jpg) top/cover no-repeat;
-    
-}
-.carousel-inner h1{
-    font-size: 60px;
-    font-family: var(--lg-font);
-    color: var(primary-white)!important;
-}
-.carousel-item .btn{
-    border-color: #fff!important;
-}
-.carousel-item .btn:hover{
-    border-color: var(--pink)!important;
+    animation: banner-animation .5s ease-in-out;
+    // animation-iteration-count: 2;
 }
 
 /* title */
@@ -111,3 +101,35 @@
     background-color: #000;
     border-color: #000;
 }
+
+@keyframes banner-animation {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    25% {
+        opacity: 0.25;
+        transform: scale(0.75);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(0.9);
+    }
+    70% {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.collection-img > img {
+    transition: transform 0.3s ease;
+}
+
+.collection-img > img:hover {
+    transform: scale(1.1);
+}
+

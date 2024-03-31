@@ -1,11 +1,13 @@
 export interface Product {
-    id: number;
+    id?: number;
     name: string;
     price: number;
     description: string;
     category: string;
     stock: number;
     imageUrl: string;
-    isNewArival?: boolean;
+    imageAltList?: Array<String>;
     isPopular?:boolean;
+    uuid?:string;
+    orders?:any;
 }

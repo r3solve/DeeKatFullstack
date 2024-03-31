@@ -7,7 +7,8 @@ import { CanActivateGuard } from '../../guards/can-activate.guard';
 
 const routes: Routes = [
      {path:'', component: LoginComponent},
-     {path:'home', component: HomeComponent, canActivate :[CanActivateGuard]},
+    //  {path:'home', component: HomeComponent, canActivate :[CanActivateGuard]},
+     {path:'home', component: HomeComponent,data: { title: 'Deekat Admin' }},
      {path:'login', redirectTo:'', pathMatch:'full' }
     ];
 

@@ -45,6 +45,7 @@ const firebaseConfig = {
     SharedModule,
     FormsModule,
     ReactiveFormsModule ,
+    
     AngularFireModule.initializeApp(firebaseConfig)
     
   ],

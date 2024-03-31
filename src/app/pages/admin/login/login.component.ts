@@ -20,9 +20,11 @@ export class LoginComponent {
           this.router.navigate(['/admin/home']);
         })
         .catch((error) => {
-          alert('Wrong Email Or Password')
+          if (error.code === "auth/network-request-failed") {
+            alert("You can't login in right now theres a network issue check your connection ");
+          }
         });
-    console.log(email, password);
+    
  
 
 }

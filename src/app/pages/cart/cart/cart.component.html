@@ -53,7 +53,7 @@
                 <div class="card-body">
                     <dl class="dlist-align">
                         <dt>Total price:</dt>
-                        <dd class="text-right ml-3">$69.97</dd>
+                        <dd class="text-right ml-3">{{totalPrice() | currency:"GHS "}}</dd>
                     </dl>
                     <dl class="dlist-align">
                         <dt>Discount:</dt>
@@ -63,9 +63,63 @@
                         <dt>Total:</dt>
                         <dd class="text-right text-dark b ml-3"><strong>$59.97</strong></dd>
                     </dl>
-                    <hr> <a href="#" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Make Purchase </a> <a href="#" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</a>
+                    <hr> <a data-toggle="modal" data-target="#order" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Make Purchase </a> <a href="#" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</a>
                 </div>
             </div>
         </aside>
     </div>
+</div>
+
+
+<div class="modal fade" id="order" tabindex="-1" role="dialog" aria-labelledby="addProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+        <div class="modal-header d-flex">
+            <h5 class="modal-title text-" id="addProductModalLabel">Confirm Shipping Details</h5>
+        </div>
+        <!-- <form > -->
+            <div class="modal-body">
+               
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input #name type="text"  name="productName" class="form-control" id="productName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input #name type="email"  name="productName" class="form-control" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Phone</label>
+                    <input #name type="text"  name="productName" class="form-control" value="233 13-550-2725" id="email" placeholder="momo-number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="productPrice">Order Total</label>
+                    <input #price  readonly type="number" class="form-control" id="productPrice" name="productPrice" value="33" required>
+                </div>
+                
+
+                 <div class="input-group mb-3 ">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Location</label>
+                  </div>
+                  <select #category class="custom-select form-group" id="inputGroupSelect01">
+                    <option value="Sneakers">Accra</option>
+                    <option value="Tops">Kumasi</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">Address</label>
+                    <input #stock type="number" class="form-control" id="productStock" name="productStock"  required>
+                </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button class="btn">Order Now</button>
+            </div>
+            
+        <!-- </form> -->
+    </div>
+</div>
+
 </div>

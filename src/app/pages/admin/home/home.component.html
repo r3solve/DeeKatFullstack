@@ -1,52 +1,133 @@
-
 <div class="d-flex">
     <div class="sidebar d-none d-md-block">
         <h4 class="text-light mb-4 pt-xl-3">DEEKAT Admin</h4>
         <div class="nav flex-column p-2">
-            <a class="nav-link active" href="#">
+            <a class="nav-link" data-toggle="modal" data-target="#addProductModal">
                 <i class="fas fa-plus"></i>
                 Add Product
             </a>
 
-            <a class="nav-link" href="#">
+            <a class="nav-link active" href="#">
                 <i class="fas fa-list-alt"></i>
-                View Products
+                Products
             </a>
 
-            <a class="nav-link" href="#">
+            <a class="nav-link" data-toggle="modal" data-target="#ordersModal">
                 <i class="fas fa-shopping-cart"></i>
                 Orders
             </a>
+            
             <a class="nav-link" href="#">
                 <i class="fas fa-users"></i>
                 Customers
             </a>
-            <button  class="nav-link flex-end" href="#">
-                <i class="fas fa-close"></i>
-                Log out
-            </button>
+            
+            <a (click)="logout()" class="nav-link" href="#">
+                <i class="fas fa-sign-out-alt"></i>
+                Sign Out
+            </a>
         </div>
     </div>
     <div class="container content flex-grow-1">
-        <h2>Add Product</h2>
-        <form>
-            <div class="form-group">
-                <label for="productName">Product Name</label>
-                <input type="text" class="form-control" id="productName" placeholder="Enter product name">
+        <div class="container p-xl-3">
+            <h2 class="mt-4 mb-4 text-center heading-2 p-l-3">Admin Page</h2>
+            <ul class="list-group">
+                <li *ngFor="let prod of products | async" class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img [src]="prod.imageUrl" class="img-fluid" alt="Product 1">
+                        </div>
+                        <div class="col-md-9">
+                            <h4>{{prod.name}}</h4>
+                            <p>{{prod.description}}</p>
+                            <p>{{prod.price | currency:"GH₵" }}</p>
+                            <button style="background-color: #0d0d0c" class="btn btn-outline-alert" >Edit</button>
+                            <button  style="background-color: #eb2835;" class="btn" >Delete</button>
+
+                        </div>
+                    </div>
+                </li>
+                
+                <!-- Add more list items as needed -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap Modal for Adding New Product -->
+<div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="addProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+        <div class="modal-header d-flex">
+            <h5 class="modal-title text-" id="addProductModalLabel">New Product</h5>
+        </div>
+        <!-- <form > -->
+            <div class="modal-body">
+               
+                <div class="form-group">
+                    <label for="productName">Product Name</label>
+                    <input #name type="text"  name="productName" class="form-control" id="productName" required>
+                </div>
+                <div class="form-group">
+                    <label for="productDescription">Product Description</label>
+                    <textarea #description class="form-control" id="productDescription" rows="3" name="productDescription"  required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">Product Price</label>
+                    <input #price type="number" class="form-control" id="productPrice" name="productPrice"  required>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">stock</label>
+                    <input #stock type="number" class="form-control" id="productStock" name="productStock"  required>
+                </div>
+
+                <div class="input-group mb-3 ">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Category</label>
+                  </div>
+                  <select #category class="custom-select form-group" id="inputGroupSelect01">
+                    <option value="Sneakers">Sneakers</option>
+                    <option value="Tops">Tops</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="productImage">Product Image (Default image first and then the others)</label>
+                    <input type='file' (change)="photoselected($event)" accept="image/png, image/jpeg" />
+                </div>
             </div>
-            <div class="form-group">
-                <label for="productDescription">Product Description</label>
-                <textarea class="form-control" id="productDescription" rows="3" placeholder="Enter product description"></textarea>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button (click)="uploadImage(name.value, price.value, description.value, stock.value, category.value)" class="btn btn-primary">Save Product</button>
             </div>
-            <div class="form-group">
-                <label for="productPrice">Product Price</label>
-                <input type="number" class="form-control" id="productPrice" placeholder="Enter product price">
+            
+        <!-- </form> -->
+    </div>
+</div>
+
+</div>
+
+<!-- Bootstrap Modal for Listing Orders -->
+<div class="modal fade" id="ordersModal" tabindex="-1" role="dialog" aria-labelledby="ordersModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ordersModalLabel">Orders List</h5>
+            
             </div>
-            <div class="form-group">
-                <label for="productImages">Product Images</label>
-                <input type="file" class="form-control-file" id="productImages" multiple>
+            <div class="modal-body">
+                <ul class="list-group">
+                    <li class="list-group-item">Order 1</li>
+                    <li class="list-group-item">Order 2</li>
+                    <li class="list-group-item">Order 3</li>
+                    <!-- Add more list items for each order -->
+                </ul>
             </div>
-            <button class="btn btn-primary">Add Product</button>
-        </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
     </div>
 </div>

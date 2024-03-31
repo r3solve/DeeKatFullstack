@@ -22,7 +22,7 @@ export class CanActivateGuard implements CanActivate {
         if (user) {
           return true; // User is authenticated
         } else {
-          this.router.createUrlTree(['/login']); // Redirect to login page
+          this.router.navigate(['/admin/login']); // Redirect to login page
           return false;
         }
       })
