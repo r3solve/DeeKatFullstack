@@ -34,6 +34,11 @@
     width: 46px;
     height: 46px;
     border-radius: 50%;
+
+}
+
+.prod {
+    background-color: white;
 }
 
 /* special */
@@ -49,11 +54,7 @@
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
-.special-img:hover img{
-    -webkit-transform: scale(1.2);
-        -ms-transform: scale(1.2);
-            transform: scale(1.2);
-}
+
 
 /* offers */
 #offers{
@@ -125,11 +126,20 @@
     }
 }
 
-.collection-img > img {
+.prod  {
     transition: transform 0.3s ease;
 }
 
-.collection-img > img:hover {
+
+.prod:hover {
     transform: scale(1.1);
+    cursor: pointer;
+}
+
+.section-bar {
+    background-color: #17749F;
+    color: white;
+    width: 100%;
+    height: 40px;
 }
 

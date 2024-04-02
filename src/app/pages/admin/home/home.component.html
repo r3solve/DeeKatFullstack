@@ -77,8 +77,16 @@
                     <input #price type="number" class="form-control" id="productPrice" name="productPrice"  required>
                 </div>
                 <div class="form-group">
-                    <label for="productPrice">stock</label>
+                    <label for="productPrice">Stock</label>
                     <input #stock type="number" class="form-control" id="productStock" name="productStock"  required>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">Sizes</label>
+                    <input #size type="text" class="form-control" id="productStock" name="productStock"  required>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">Colors</label>
+                    <input #color type="text" class="form-control" id="productStock" name="productStock"  required>
                 </div>
 
                 <div class="input-group mb-3 ">
@@ -97,10 +105,25 @@
                     <label for="productImage">Product Image (Default image first and then the others)</label>
                     <input type='file' (change)="photoselected($event)" accept="image/png, image/jpeg" />
                 </div>
+
+                <div class="form-group">
+                    <label for="productImage">Product Image (Default image first and then the others)</label>
+                    <input type='file'  accept="image/png, image/jpeg" />
+                </div>
+                <div class="form-group">
+                    <label for="productImage">Product Image (Default image first and then the others)</label>
+                    <input type='file' ( accept="image/png, image/jpeg" />
+                </div>
+                 <div class="form-group">
+                    <label for="productImage">Product Image (Default image first and then the others)</label>
+                    <input type='file'  accept="image/png, image/jpeg" />
+                </div>
+               
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button (click)="uploadImage(name.value, price.value, description.value, stock.value, category.value)" class="btn btn-primary">Save Product</button>
+                <button (click)="uploadImages(name.value, price.value, description.value, stock.value, category.value, size.value, color.value)" class="btn btn-primary">Save Product</button>
             </div>
             
         <!-- </form> -->

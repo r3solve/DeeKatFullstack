@@ -1,4 +1,4 @@
-<header id="header" class="vh-100" style="background-image: url('../../../../assets/nikebg.jpg'); padding-top: 104px;">
+<header id="header" class="vh-100" style="background-image: url('../../../../assets/nikebg.jpg'); padding-top: 104px; ">
     <div class="container h-100 d-flex align-items-center">
         <div class="text-center">
             <h1 class="text-uppercase py-2 fw-bold text-white">New Arrivals</h1>
@@ -13,10 +13,12 @@
     <section id = "collection" class = "py-5">
 
         <div class = "container">
-            <div class = "title text-center">
+            <!-- <div class = "title text-center">
                 <h2 class = "position-relative d-inline-block">New Collection</h2>
+            </div> -->
+            <div  class="container background-primary section-bar pt-lg-2" >
+                <h3 class="text-center text-white">All Collection</h3>
             </div>
-
             <div class = "row g-0">
                 <div class = "d-flex flex-wrap justify-content-center mt-5 filter-button-group">
                     <button type = "button" class = "btn m-2 text-dark active-filter-btn" data-filter = "*">All</button>
@@ -25,22 +27,21 @@
                     <button type = "button" class = "btn m-2 text-dark" data-filter = ".new">New Arrival</button>
                 </div>
 
-               <div class="collection-list mt-4 row gx-3 gy-3">
-                      <div *ngFor="let prod of products | async" class="col-md-6 col-lg-4 col-xl-3 p-xl-4 best">
-                        <div class="collection-img position-relative">
+               <div class="collection-list mt-4 row g-3 ">
+                      <div  [routerLink]="prod.name" *ngFor="let prod of products | async" class="col-md-6 col-lg-4 col-xl-3 p-xl-4 best border prod ">
+                        <div  class="collection-img position-relative">
                           <img [src]="prod.imageUrl" class="w-100">
                           <span class="text-center position-absolute bg-primary text-white d-flex align-items-center justify-content-center">{{ prod.stock }} left</span>
                         </div>
                         <div class="text-center">
                           <div class="rating mt-3">
                             <span class="text-primary"><i class="fas fa-star"></i></span>
-                            <!-- Add more stars as needed -->
+                            <span class="text-primary"><i class="fas fa-star"></i></span>
+                            <span class="text-primary"><i class="fas fa-star"></i></span>
                           </div>
+                          <hr>
                           <p class="text-capitalize my-1">{{ prod.name }}</p>
-                          <span class="fw-bold">{{ prod.price | currency:"GH₵" }}</span>
-                          <div>
-                            <button (click)="clicked(prod)" class="btn btn-primary mt-3">Add to Cart</button>
-                          </div>
+                          <span class="fw-bold ">{{ prod.price | currency:"GH₵" }}</span>
                         </div>
                       </div>
                     </div>
@@ -54,12 +55,12 @@
     <!-- special products -->
     <section id = "special" class = "py-5">
         <div class = "container">
-            <div class = "title text-center py-5">
-                <h2 class = "position-relative d-inline-block">Special Selection</h2>
+            <div  class="container background-primary pt-lg-2  section-bar" >
+                <h3 class="text-center text-white">Special Selection</h3>
             </div>
 
-            <div class="special-list row g-2">
-            <div *ngFor="let prod of products | async" class="col-md-6 col-lg-4 col-xl-3 p-2">
+            <div class="special-list row g-2 pt-lg-3">
+            <div *ngFor="let prod of products | async" class="col-md-6 col-lg-4 col-xl-3 p-2 prod border">
                 <div class="special-img position-relative overflow-hidden">
                     <img [src]="prod.imageUrl" class="w-80 h-80 img-fluid"> <!-- Added img-fluid class to make the image responsive -->
                     <span class="position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
@@ -67,6 +68,7 @@
                     </span>
                 </div>
                 <div class="text-center">
+                    <hr>
                     <p class="text-capitalize mt-3 mb-1">{{ prod.name }}</p>
                     <span class="fw-bold d-block">{{ prod.price }}</span>
                     <a href="#" class="btn btn-primary mt-3">Add to Cart</a>
@@ -95,8 +97,8 @@
     <!-- blogs -->
     <section id = "blogs" class = "py-5">
         <div class = "container">
-            <div class = "title text-center py-5">
-                <h2 class = "position-relative d-inline-block">Our Latest Blog</h2>
+            <div  class="container background-primary p-lg-2  section-bar" >
+                <h3 class="text-center text-white">Blog</h3>
             </div>
 
             <div class = "row g-3">
@@ -147,13 +149,13 @@
     <!-- end of blogs -->
 
     <!-- about us -->
-    <section id = "about" class = "py-5">
+    <section  class = "py-5">
         <div class = "container">
             <div class = "row gy-lg-5 align-items-center">
-                <div class = "col-lg-6 order-lg-1 text-center text-lg-start">
-                    <div class = "title pt-3 pb-5">
-                        <h2 class = "position-relative d-inline-block ms-4">About Us</h2>
-                    </div>
+                <div class = "col-lg-6 order-lg-1 text-center text-lg-start p-lg-2">
+                    <div  class="container background-primary pt-lg-2  section-bar" >
+                    <h3 class="text-center text-white">About Us</h3>
+                </div>
                     <p class = "lead text-muted">At DEEKART, we curate the latest fashion trends from emerging global designers to present you in style. Our passionate team handpicks every stylish and high-quality piece, ensuring our collections embody cutting-edge fashion. From dresses and tops to shoes and accessories, we evolve constantly to keep you at the forefront.
 
                     We cater to diverse tastes, offering pieces that allow you to confidently express your individuality. Whether your aesthetic is minimalist chic, bold, or anything in between, DEEKART lets you present your personal style.
@@ -163,29 +165,9 @@
                     Join DEEKART and unlock a world of fashion at your fingertips, presenting you in style. Discover new designers, stay ahead of trends, and embrace your style like never before.</p>
                 </div>
                 <div class = "col-lg-6 order-lg-0">
-                    <img src = "./logo.jpeg" alt = "" class = "img-fluid">
+                    <img src = "../../../../../assets/logo.jpeg" alt = "" class = "img-fluid">
                 </div>
             </div>
         </div>
     </section>
     <!-- end of about us -->
-
-
-
-    <!-- newsletter -->
-    <section id = "newsletter" class = "py-5">
-        <div class = "container">
-            <div class = "d-flex flex-column align-items-center justify-content-center">
-                <div class = "title text-center pt-3 pb-5">
-                    <h2 class = "position-relative d-inline-block ms-4">Newsletter Subscription</h2>
-                </div>
-
-                <p class = "text-center text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus rem officia accusantium maiores quisquam dolorum?</p>
-                <div class = "input-group mb-3 mt-3">
-                    <input type = "text" class = "form-control" placeholder="Enter Your Email ...">
-                    <button class = "btn btn-primary" type = "submit">Subscribe</button>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end of newsletter -->

@@ -17,7 +17,6 @@ import {DataService} from '../../../services/data.service'
 export class HomeComponent implements OnInit{
   path: any;
   product: Product = {
-    id: 0,
     uuid:'',
     name: '',
     price: 0,
@@ -25,7 +24,10 @@ export class HomeComponent implements OnInit{
     category: '',
     stock: 0,
     imageUrl: '',
-    isPopular: false
+    isPopular: false,
+    imageAlt1:'',
+    imageAlt2: '',
+    imageAlt3: '',
   };
 
   constructor(private data: DataService,private authService: AuthenticationService, private router: Router, private storage: AngularFireStorage, private db: AngularFireDatabase) {}
@@ -46,7 +48,7 @@ export class HomeComponent implements OnInit{
     this.path = event.target.files[0];
   }
 
-  uploadImage(name:any, price:any, des:any, stock:any, category:any) {
+  uploadImages(name:any, price:any, des:any, stock:any, category:any ,size:any, color:any) {
     if (!this.path) {
       alert('No file selected for upload.');
       return;
@@ -72,6 +74,8 @@ export class HomeComponent implements OnInit{
         });
       })
     ).subscribe();
+
+    
   }
 
   saveProduct() {
