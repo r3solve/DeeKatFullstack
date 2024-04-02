@@ -1,0 +1,120 @@
+<div class="container p-xl-4">
+		<div class="card d-flex flex-shrink-1">
+			<div class="container-fliud">
+				<div class="wrapper row">
+					<div class="preview col-md-6">
+						<div class="preview-pic tab-content">
+						  <div class="tab-pane active" id="pic-1"><img [src]="filteredProducts.imageUrl" /></div>
+						  <div class="tab-pane" id="pic-2"><img [src]="filteredProducts.imageUrl" /></div>
+						</div>
+						<ul class="preview-thumbnail nav nav-tabs">
+						  <li><a data-target="#pic-2" data-toggle="tab"><img [src]="filteredProducts.imageAlt1" /></a></li>
+						  <li><a data-target="#pic-3" data-toggle="tab"><img [src]="filteredProducts.imageAlt2" /></a></li>
+						  <li><a data-target="#pic-2" data-toggle="tab"><img [src]="filteredProducts.imageAlt2" /></a></li>
+						  
+						</ul>
+						
+					</div>
+					<div class="details col-md-6">
+						<h3 class="product-title">{{filteredProducts.name}}</h3>
+						<div class="rating">
+							<div class="stars">
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<span class="review-no">41 reviews</span>
+						</div>
+						<p class="product-description">{{ filteredProducts.description}}</p>
+						<h4 class="price">current price: <span>{{filteredProducts.price | currency:"GH₵" }}</span></h4>
+						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+						<h5 class="sizes">sizes:
+							{{ filteredProducts.sizes }}
+						</h5>
+							<label for="select" class="form-label">Color</label>
+							<div class="p-3">
+								{{ filteredProducts.colors}}
+							<select #optionValue id="select" (change)="changeColor(optionValue)" >
+								<option>Red</option>
+								<option>Green</option>
+								<option>Blue</option>
+							</select>
+						</div>
+
+						<div class="action">
+							<button (click)="clicked(filteredProducts)" class="add-to-cart btn btn-default" type="button">add to cart</button>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	    <section id = "special" class = "py-5">
+        <div class = "container">
+            <div class = "title text-center py-5">
+                <h2 class = "position-relative d-inline-block">Collection</h2>
+            </div>
+
+            <div class = "special-list row g-0">
+                <div class = "col-md-6 col-lg-4 col-xl-3 p-2">
+                    <div class = "special-img position-relative overflow-hidden">
+                        <img src = "images/special_product_1.jpg" class = "w-100">
+                        <span class = "position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
+                            <i class = "fas fa-heart"></i>
+                        </span>
+                    </div>
+                    <div class = "text-center">
+                        <p class = "text-capitalize mt-3 mb-1">gray shirt</p>
+                        <span class = "fw-bold d-block">$ 45.50</span>
+                        <a href = "#" class = "btn btn-primary mt-3">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class = "col-md-6 col-lg-4 col-xl-3 p-2">
+                    <div class = "special-img position-relative overflow-hidden">
+                        <img src = "images/special_product_2.jpg" class = "w-100">
+                        <span class = "position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
+                            <i class = "fas fa-heart"></i>
+                        </span>
+                    </div>
+                    <div class = "text-center">
+                        <p class = "text-capitalize mt-3 mb-1">gray shirt</p>
+                        <span class = "fw-bold d-block">$ 45.50</span>
+                        <a href = "#" class = "btn btn-primary mt-3">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class = "col-md-6 col-lg-4 col-xl-3 p-2">
+                    <div class = "special-img position-relative overflow-hidden">
+                        <img src = "images/special_product_3.jpg" class = "w-100">
+                        <span class = "position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
+                            <i class = "fas fa-heart"></i>
+                        </span>
+                    </div>
+                    <div class = "text-center">
+                        <p class = "text-capitalize mt-3 mb-1">gray shirt</p>
+                        <span class = "fw-bold d-block">$ 45.50</span>
+                        <a href = "#" class = "btn btn-primary mt-3">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class = "col-md-6 col-lg-4 col-xl-3 p-2">
+                    <div class = "special-img position-relative overflow-hidden">
+                        <img src = "images/special_product_4.jpg" class = "w-100">
+                        <span class = "position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
+                            <i class = "fas fa-heart"></i>
+                        </span>
+                    </div>
+                    <div class = "text-center">
+                        <p class = "text-capitalize mt-3 mb-1">gray shirt</p>
+                        <span class = "fw-bold d-block">$ 45.50</span>
+                        <a href = "#" class = "btn btn-primary mt-3">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
