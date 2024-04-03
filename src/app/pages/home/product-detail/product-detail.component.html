@@ -4,13 +4,14 @@
 				<div class="wrapper row">
 					<div class="preview col-md-6">
 						<div class="preview-pic tab-content">
-						  <div class="tab-pane active" id="pic-1"><img [src]="filteredProducts.imageUrl" /></div>
-						  <div class="tab-pane" id="pic-2"><img [src]="filteredProducts.imageUrl" /></div>
+						  <div class="tab-pane active" id="pic-1"><img [src]="filteredProducts.imageAlt1" /></div>
+						  <div class="tab-pane" id="pic-2"><img [src]="filteredProducts.imageAlt1" /></div>
 						</div>
 						<ul class="preview-thumbnail nav nav-tabs">
 						  <li><a data-target="#pic-2" data-toggle="tab"><img [src]="filteredProducts.imageAlt1" /></a></li>
 						  <li><a data-target="#pic-3" data-toggle="tab"><img [src]="filteredProducts.imageAlt2" /></a></li>
 						  <li><a data-target="#pic-2" data-toggle="tab"><img [src]="filteredProducts.imageAlt2" /></a></li>
+						  <li><a data-target="#pic-2" data-toggle="tab"><img [src]="filteredProducts.imageAlt3" /></a></li>
 						  
 						</ul>
 						
@@ -27,9 +28,9 @@
 							</div>
 							<span class="review-no">41 reviews</span>
 						</div>
+						<h4>Description</h4>
 						<p class="product-description">{{ filteredProducts.description}}</p>
 						<h4 class="price">current price: <span>{{filteredProducts.price | currency:"GH₵" }}</span></h4>
-						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
 						<h5 class="sizes">sizes:
 							{{ filteredProducts.sizes }}
 						</h5>

@@ -31,41 +31,26 @@
             <button class="btn btn-sm btn-outline-secondary">
               <i class="fas fa-download mr-1"></i>Export
             </button>
+
+            <button style="background-color:#785976; color: black;" (click)="logout()" class="btn btn-sm btn-outline-secondary">
+              <i class="fas fa-sign-out-alt mr-1"></i>Logout
+            </button>
           </div>
         </div>
         <div class="row">
           <!-- Your content goes here -->
           <div class="row">
           
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div  *ngFor="let prod of products | async" class="col-lg-4 col-md-6 mb-4">
             <div class="card">
-              <div class="card-header">Total Orders</div>
+              <div class="card-header text-center">{{prod.name}}</div>
+              <img class="card-img-top border-1" [src]="prod.imageAlt1" alt="{{prod.name}} image">
               <div class="card-body">
-                <h3 class="card-title">120</h3>
+                <h3 class="card-title">{{ prod.price | currency: "GH₵" }}</h3>
               </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card">
-              <div class="card-header">Revenue</div>
-              <div class="card-body">
-                <h3 class="card-title">$25,000</h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card">
-              <div class="card-header">Revenue</div>
-              <div class="card-body">
-                <h3 class="card-title">$25,000</h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card">
-              <div class="card-header">Revenue</div>
-              <div class="card-body">
-                <h3 class="card-title">$25,000</h3>
+              <div class="btn-group">
+                <button class="btn btn-primary">Edit</button>
+                <button  (click)="deleteItem(prod.name)" style="background-color: red;" class="btn">Delete</button>
               </div>
             </div>
           </div>
@@ -81,35 +66,85 @@
   <!-- Modals -->
   <!-- Add Product Modal -->
   <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="addProductModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addProductModalLabel">Add Product</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <!-- Form for adding product goes here -->
-          <form>
-            <div class="form-group">
-              <label for="productName">Product Name</label>
-              <input type="text" class="form-control" id="productName">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addProductModalLabel">Add Product</h5>
+                
             </div>
-            <div class="form-group">
-              <label for="productPrice">Price</label>
-              <input type="text" class="form-control" id="productPrice">
+            <div class="modal-body">
+                <!-- Form for adding product goes here -->
+                <form>
+                    <div class="form-group">
+                        <label for="productName">Product Name</label>
+                        <input #name  type="text" class="form-control" id="productName">
+                    </div>
+                    <div class="form-group">
+                        <label for="productDescription">Product Description</label>
+                        <input #des type="text" class="form-control" id="productDescription">
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice">Price</label>
+                        <input #price type="text" class="form-control" id="productPrice">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productStock">Stock</label>
+                        <input #stock type="text" class="form-control" id="productStock">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productSizes">Sizes</label>
+                        <input #sizes type="text" class="form-control" id="productSizes">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productColors">Colors</label>
+                        <input #colors type="text" class="form-control" id="productColors">
+                    </div>
+                    <div class="form-group">
+                        <label for="productColors">Category</label>
+                        <select #cat type="text" class="form-control" id="productCategory">
+                          <option>Sneakers</option>
+                          <option>Clothes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productBaseImage">Base Image</label>
+                        <input  (change)="onUpload($event)" type="file" accept="image/png, image/jpeg" class="form-control" id="productBaseImage">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productAngle1Image">Angle 1 Image</label>
+                        <input (change)="onUpload($event)"  type="file" accept="image/png, image/jpeg" class="form-control" id="productAngle1Image">
+                    </div>
+                    <div class="form-group">
+                        <label for="productAngle2Image">Angle 2 Image</label>
+                        <input (change)="onUpload($event)"  type="file" accept="image/png, image/jpeg" class="form-control" id="productAngle2Image">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productAngle3Image">Angle 3 Image</label>
+                        <input (change)="onUpload($event)"  type="file" accept="image/png, image/jpeg" class="form-control" id="productAngle3Image">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productAngle4Image">Angle 4 Image</label>
+                        <input (change)="onUpload($event)"  type="file" accept="image/png, image/jpeg" class="form-control" id="productAngle4Image">
+                    </div>
+
+                    <!-- Other product fields can be added here -->
+                </form>
             </div>
-            <!-- Other product fields can be added here -->
-          </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button  (click)="saveProduct(name.value, des.value, price.value, cat.value , stock.value, sizes.value, colors.value)"  type="button" class="btn btn-primary">Save changes</button>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
+
 
   <!-- Orders Modal -->
   <div class="modal fade" id="ordersModal" tabindex="-1" role="dialog" aria-labelledby="ordersModalLabel" aria-hidden="true">
@@ -117,9 +152,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="ordersModalLabel">Orders</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+         
         </div>
         <div class="modal-body">
           <!-- Table for displaying orders goes here -->

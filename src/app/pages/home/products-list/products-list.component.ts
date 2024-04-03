@@ -12,6 +12,7 @@ import { DataService } from '../../../services/data.service';
 })
 export class ProductsListComponent implements OnInit {
   products: Observable<Product[]> = new Observable<Product[]>(undefined);
+  specialSelection:boolean = false;
 
 
   constructor(private prodService: ProductService, private cartService: CartService, private data: DataService) { }

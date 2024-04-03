@@ -8,13 +8,10 @@ import { CartModule } from './pages/cart/cart.module';
 import { SharedModule } from './shared/shared.module';
 import { initializeApp } from "firebase/app";
 import { AngularFireModule } from '@angular/fire/compat';
-
-// TODO: Add SDKs for Firebase products that you want to use
-
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { HttpClientModule } from '@angular/common/http'
 
 
-// Your web app's Firebase configuration
 
 const firebaseConfig = {
 
@@ -45,8 +42,10 @@ const firebaseConfig = {
     SharedModule,
     FormsModule,
     ReactiveFormsModule ,
-    
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireStorageModule,
+    HttpClientModule,
+
     
   ],
   providers: [],

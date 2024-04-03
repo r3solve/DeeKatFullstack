@@ -17,7 +17,7 @@ export class LoginComponent {
         .then(() => {
           // Handle successful login
           alert("Welcome")
-          this.router.navigate(['admin/home']);
+          this.router.navigate(['admin/base']);
         })
         .catch((error) => {
           if (error.code === "auth/network-request-failed") {
