@@ -1,0 +1,151 @@
+  <div style="margin-top:50px;" class="container-fluid p-xl-4">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav class="col-md-2 d-none d-md-block sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#addProductModal">
+                <i class="fas fa-boxes mr-2"></i> Add Product
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#ordersModal">
+                <i class="fas fa-shopping-cart mr-2"></i>Orders
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  
+      <!-- Main content -->
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 main-content">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center">
+          <h2 class="mb-3">Dashboard</h2>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <button class="btn btn-sm btn-outline-secondary">
+              <i class="fas fa-download mr-1"></i>Export
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Your content goes here -->
+          <div class="row">
+          
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+              <div class="card-header">Total Orders</div>
+              <div class="card-body">
+                <h3 class="card-title">120</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+              <div class="card-header">Revenue</div>
+              <div class="card-body">
+                <h3 class="card-title">$25,000</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+              <div class="card-header">Revenue</div>
+              <div class="card-body">
+                <h3 class="card-title">$25,000</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+              <div class="card-header">Revenue</div>
+              <div class="card-body">
+                <h3 class="card-title">$25,000</h3>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <!-- Add Product Modal -->
+  <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="addProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addProductModalLabel">Add Product</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Form for adding product goes here -->
+          <form>
+            <div class="form-group">
+              <label for="productName">Product Name</label>
+              <input type="text" class="form-control" id="productName">
+            </div>
+            <div class="form-group">
+              <label for="productPrice">Price</label>
+              <input type="text" class="form-control" id="productPrice">
+            </div>
+            <!-- Other product fields can be added here -->
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Orders Modal -->
+  <div class="modal fade" id="ordersModal" tabindex="-1" role="dialog" aria-labelledby="ordersModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ordersModalLabel">Orders</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Table for displaying orders goes here -->
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Product 1</td>
+                <td>2</td>
+                <td>$50</td>
+              </tr>
+              <!-- Additional rows can be added dynamically or fetched from backend -->
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
